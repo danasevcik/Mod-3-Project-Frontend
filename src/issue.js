@@ -13,9 +13,25 @@ class Issue {
 
   toHTML() {
     const div = document.createElement('div')
-    div.innerHTML = `
-      <p>${this.title}</p>
-    `
+    div.innerHTML = 
+    `<div data-id="" class="sixteen wide column">
+        <div class="ui horizontal segments">
+            <div class="ui segment">
+              <span style="font-weight: bold;">${this.votes}</span>
+              <div class="ui buttons">
+                <button class="ui button">Downvote</button>
+                <div class="or"></div>
+                <button class="ui positive button">Upvote</button>
+              </div>
+            </div>
+            <div class="ui segment">
+              <h2>${this.title}</h2>
+            </div>
+            <div class="ui segment">
+              <a href="" data-id="${this.id}">Comments</a>
+            </div>
+        </div>
+      </div>`;
 
     return div
   }

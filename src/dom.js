@@ -1,7 +1,8 @@
 class Dom {
   constructor() {
-    this.form = document.querySelector('.ui.form')
+    // this.form = document.querySelector('.ui.form')
     this.issues = document.querySelector('#allissues')
+    this.issuesContainer = document.querySelector('div.ui.stackable.grid.container');
     console.log('form')
   }
 
@@ -41,13 +42,13 @@ class Dom {
       issues.forEach(issue => {
         new Issue(issue)
       })
-      Issue.renderAll(this.issues)
+      Issue.renderAll(this.issuesContainer);
     })
   }
 
   addAllEventListeners() {
     console.log('adding listeners')
-    this.form.addEventListener('submit', this.handleSubmit.bind(this))
+    // this.form.addEventListener('submit', this.handleSubmit.bind(this))
     this.issues.addEventListener('click', this.seeAllIssues.bind(this))
   }
 
