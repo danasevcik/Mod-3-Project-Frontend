@@ -34,8 +34,8 @@ class Dom {
     })
   }
 
-  seeAllIssues(e) {
-    e.preventDefault()
+  seeAllIssues() {
+    // e.preventDefault()
     console.log('handling all issues')
     issueAdapter.fetch()
     .then(issues => {
@@ -78,7 +78,7 @@ class Dom {
     console.log('adding listeners')
     // this.form.addEventListener('submit', this.handleSubmit.bind(this))
     this.issues.addEventListener('click', this.seeAllIssues.bind(this))
-    this.issuesContainer.addEventListener('click', this.handleVote.bind(this))
+    // this.issuesContainer.addEventListener('click', this.handleVote.bind(this))
   }
 
 }
