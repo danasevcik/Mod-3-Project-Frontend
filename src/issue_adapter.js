@@ -25,5 +25,10 @@ const issueAdapter = (function() {
         throw "Something went wrong!!!!"
       })
     },
+    upvote: function(params) {
+      return fetch(
+        `${API_URL}/${params.id}/upvote`,
+      ).then(response => response.json())
+    }
   }
 })();

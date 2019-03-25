@@ -13,15 +13,15 @@ class Issue {
 
   toHTML() {
     const div = document.createElement('div')
-    div.innerHTML = 
-    `<div data-id="" class="sixteen wide column">
+    div.innerHTML =
+    `<div class="sixteen wide column">
         <div class="ui horizontal segments">
             <div class="ui segment">
               <span style="font-weight: bold;">${this.votes}</span>
               <div class="ui buttons">
-                <button class="ui button">Downvote</button>
+                <button data-id="${this.id}" class="ui button">Downvote</button>
                 <div class="or"></div>
-                <button class="ui positive button">Upvote</button>
+                <button data-id="${this.id}" class="ui positive button">Upvote</button>
               </div>
             </div>
             <div class="ui segment">

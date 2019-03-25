@@ -46,10 +46,39 @@ class Dom {
     })
   }
 
+  handleVote(e) {
+    switch(e.target.innerText) {
+      case 'Upvote':
+        issueAdapter.upvote({id: e.target.dataset.id})
+        .then(issue => {
+          // debugger
+          // console.log(issue)
+          e.target.parentNode.parentElement.firstElementChild.innerText = issue.votes
+        })
+        // debugger
+        break;
+      case 'Downvote':
+        const issueId = e.target.dataset.id
+        break;
+      default:
+        console.log('click something else')
+    }
+    // console.log(e.target)
+    // if (e.target.innerText === 'Downvote') {
+    //   console.log('down')
+    //   console.log(this)
+    //
+    //
+    // } else if (e.target.innerText === 'Upvote') {
+    //
+    // }
+  }
+
   addAllEventListeners() {
     console.log('adding listeners')
     // this.form.addEventListener('submit', this.handleSubmit.bind(this))
     this.issues.addEventListener('click', this.seeAllIssues.bind(this))
+    this.issuesContainer.addEventListener('click', this.handleVote.bind(this))
   }
 
 }
