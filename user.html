@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Project Normor - User Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="./src/dom.js"></script>
+    <script src="./src/issue.js"></script>
+    <script src="./src/issue_adapter.js"></script>
+    <script src="./src/comment.js"></script>
+    <script src="./src/comment_adapter.js"></script>
+    <script src="./src/category.js"></script>
+    <script src="./src/category_adapter.js"></script>
+    <script src="./src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h2>NORMOR!</h2>
+    </header>
+
+    <main id="main-container">
+      <form class="ui form">
+        <h4 class="ui dividing header">Issue Details</h4>
+        <div class="field">
+          <label>Title</label>
+            <div class="field">
+              <input type="text" name="title" placeholder="Title">
+            </div>
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea name="description" placeholder="Description"></textarea>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Zipcode</label>
+            <input type="text" name="zipcode" placeholder="Zipcode">
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select class="ui fluid dropdown">
+              <option value="">Category</option>
+              <option value="1">Transportation</option>
+             </select>
+          </div>
+        </div>
+       
+        <div class="ui button" tabindex="0">Submit Order</div>
+      </form>
+    </main>
+
+  </body>
+</html>
