@@ -4,7 +4,7 @@ const categoryAdapter = (function() {
   return {
     fetch: function() {
       return fetch(API_URL)
-        .then(response => response.json());
+      .then(response => response.json());
     }
   }
 })();

@@ -10,6 +10,28 @@ class Issue {
     this.resolved = resolved;
     this.constructor.all.push(this);
   }
+
+  toHTML() {
+    const div = document.createElement('div')
+    div.innerHTML = `
+      <p>${this.title}</p>
+    `
+
+    return div
+  }
+
+  render(domNode) {
+    domNode.appendChild(this.toHTML())
+  }
+
+  static renderAll(domNode) {
+    domNode.innerHTML = ''
+
+    this.all.forEach(issue => {
+      issue.render(domNode)
+    })
+  }
+
 }
 
 Issue.all = [];

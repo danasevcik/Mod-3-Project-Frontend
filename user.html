@@ -24,33 +24,38 @@
     </header>
 
     <main id="main-container">
+      <div id="allissues">
+        <button class="ui button" type='submit'>SEE ALL ISSUES</button>
+      </div>
       <form class="ui form">
         <h4 class="ui dividing header">Issue Details</h4>
         <div class="field">
           <label>Title</label>
             <div class="field">
-              <input type="text" name="title" placeholder="Title">
+              <input id='issuetitle' type="text" name="title" placeholder="Title">
             </div>
         </div>
         <div class="field">
           <label>Description</label>
-          <textarea name="description" placeholder="Description"></textarea>
+          <textarea id='issuedescription' name="description" placeholder="Description"></textarea>
         </div>
         <div class="two fields">
           <div class="field">
             <label>Zipcode</label>
-            <input type="text" name="zipcode" placeholder="Zipcode">
+            <input id='issuezipcode' type="text" name="zipcode" placeholder="Zipcode">
           </div>
           <div class="field">
             <label>Category</label>
-            <select class="ui fluid dropdown">
-              <option value="">Category</option>
-              <option value="1">Transportation</option>
+            <select id='issuecategory' class="ui fluid dropdown">
+              <option data-value="">Category</option>
+              <option data-value="" id='1'>traffic</option>
+              <!-- <option data-value="">Roads</option>
+              <option data-value="">Safety</option> -->
              </select>
           </div>
         </div>
-       
-        <div class="ui button" tabindex="0">Submit Order</div>
+
+        <button class="ui button" type='submit'>Post Issue</button>
       </form>
     </main>
 

@@ -1,0 +1,54 @@
+class Dom {
+  constructor() {
+    this.form = document.querySelector('.ui.form')
+    this.issues = document.querySelector('#allissues')
+    console.log('form')
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log('handling submit')
+
+    const title = this.form.querySelector('#issuetitle').value
+    const description = this.form.querySelector('#issuedescription').value
+    const zipcode = this.form.querySelector('#issuezipcode').value
+    const category = this.form.querySelector('#issuecategory').value
+
+    this.form.querySelector('#issuetitle').value = ''
+    this.form.querySelector('#issuedescription').value = ''
+    this.form.querySelector('#issuezipcode').value = ''
+    this.form.querySelector('#issuecategory').value = 'Category'
+
+    issueAdapter.create({title: title, description: description, zipcode: zipcode, category:category})
+    .then(response => {
+      console.log(response)
+      new Issue(response)
+    }).catch(error => {
+      console.log('in the catch');
+      const errorDiv = document.createElement('div')
+      errorDiv.innerHTML = `
+        <h1 class="header">That issue can not be posted.</h1>
+      `
+      this.form.appendChild(errorDiv)
+    })
+  }
+
+  seeAllIssues(e) {
+    e.preventDefault()
+    console.log('handling all issues')
+    issueAdapter.fetch()
+    .then(issues => {
+      issues.forEach(issue => {
+        new Issue(issue)
+      })
+      Issue.renderAll(this.issues)
+    })
+  }
+
+  addAllEventListeners() {
+    console.log('adding listeners')
+    this.form.addEventListener('submit', this.handleSubmit.bind(this))
+    this.issues.addEventListener('click', this.seeAllIssues.bind(this))
+  }
+
+}
