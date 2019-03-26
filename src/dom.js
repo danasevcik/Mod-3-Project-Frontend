@@ -1,8 +1,9 @@
 class Dom {
   constructor() {
     // this.form = document.querySelector('.ui.form')
-    this.issues = document.querySelector('#allissues')
+    this.issues = document.querySelector('#allissues');
     this.issuesContainer = document.querySelector('div.ui.stackable.grid.container');
+    this.rightMenu = document.querySelector('div.ui.right.fixed.vertical.menu');
     console.log('form')
   }
 
@@ -51,34 +52,42 @@ class Dom {
       case 'Upvote':
         issueAdapter.upvote({id: e.target.dataset.id})
         .then(issue => {
-          // debugger
-          // console.log(issue)
           e.target.parentNode.parentElement.firstElementChild.innerText = issue.votes
         })
-        // debugger
         break;
       case 'Downvote':
-        const issueId = e.target.dataset.id
+        issueAdapter.downvote({id: e.target.dataset.id})
+        .then(issue => {
+          e.target.parentNode.parentElement.firstElementChild.innerText = issue.votes
+        })
         break;
       default:
         console.log('click something else')
     }
-    // console.log(e.target)
-    // if (e.target.innerText === 'Downvote') {
-    //   console.log('down')
-    //   console.log(this)
-    //
-    //
-    // } else if (e.target.innerText === 'Upvote') {
-    //
-    // }
+  }
+
+  handleRightMenu(e) {
+    switch(e.target.innerText) {
+      case 'Submit New Issue':
+        console.log('new issue')
+        // ADD LOGIC HERE
+        break;
+      case 'Refresh':
+        console.log('refresh')
+        // this.issuesContainer.innerHTML = ''
+        // this.seeAllIssues()
+        break;
+      default:
+      console.log('click something else');
+    }
   }
 
   addAllEventListeners() {
     console.log('adding listeners')
     // this.form.addEventListener('submit', this.handleSubmit.bind(this))
     this.issues.addEventListener('click', this.seeAllIssues.bind(this))
-    // this.issuesContainer.addEventListener('click', this.handleVote.bind(this))
+    this.issuesContainer.addEventListener('click', this.handleVote.bind(this))
+    this.rightMenu.addEventListener('click', this.handleRightMenu.bind(this))
   }
 
 }

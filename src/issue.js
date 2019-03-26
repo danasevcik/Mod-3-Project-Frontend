@@ -17,7 +17,7 @@ class Issue {
     `<div class="sixteen wide column">
         <div class="ui horizontal segments">
             <div class="ui segment">
-              <span style="font-weight: bold;">${this.votes}</span>
+              <span style="font-weight: bold">${this.votes}</span>
               <div class="ui buttons">
                 <button data-id="${this.id}" class="ui button">Downvote</button>
                 <div class="or"></div>
